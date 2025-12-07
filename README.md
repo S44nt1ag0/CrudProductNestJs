@@ -5,7 +5,7 @@
 
 # CRUD Backend
 
-Welcome to the **Hugh Caption** backend repository! 🚀
+Welcome to the **CRUD** backend repository! 🚀
 This project is a robust RESTful API built with **NestJS**, designed to handle user authentication, product management, and more.
 
 ## 🛠️ Tech Stack
