@@ -3,6 +3,7 @@ import { Table, Column, Model, DataType } from 'sequelize-typescript';
 @Table({
   tableName: 'products',
   timestamps: true,
+  paranoid: true, // Enable soft delete
 })
 export class Product extends Model {
   @Column({
@@ -12,6 +13,7 @@ export class Product extends Model {
     primaryKey: true,
   })
   declare id: string;
+
   @Column({
     type: DataType.STRING,
     allowNull: false,
@@ -31,9 +33,15 @@ export class Product extends Model {
   declare price: number;
 
   @Column({
+    type: DataType.UUID,
+    allowNull: false,
+  })
+  declare userId: string;
+
+  @Column({
     type: DataType.DATE,
     allowNull: true,
     defaultValue: null,
   })
-  declare deletedAt: Date;
+  declare deletedAt: Date | null;
 }

@@ -2,6 +2,7 @@ import { BadRequestException, Injectable } from '@nestjs/common';
 import { ProductRepository } from './product.repository';
 import { Product } from './entities/product.entity';
 import { DeleteProductDto, ProductDto } from './dto/product.dto';
+import { JwtPayload } from '../auth/dto/jwt.dto';
 
 @Injectable()
 export class ProductService {
@@ -11,8 +12,8 @@ export class ProductService {
     return await this.productRepository.findAll();
   }
 
-  async createProduct(product: ProductDto): Promise<any> {
-    return await this.productRepository.create(product);
+  async createProduct(product: ProductDto, user: JwtPayload): Promise<any> {
+    return await this.productRepository.create(product, user);
   }
 
   async deleteProduct(deleteProductDto: DeleteProductDto): Promise<any> {

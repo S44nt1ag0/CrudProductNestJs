@@ -2,6 +2,7 @@ import { PRODUCT_REPOSITORY } from 'src/core/constants';
 import { Product } from './entities/product.entity';
 import { Inject, Injectable } from '@nestjs/common';
 import { DeleteProductDto, ProductDto } from './dto/product.dto';
+import { JwtPayload } from '../auth/dto/jwt.dto';
 
 @Injectable()
 export class ProductRepository {
@@ -14,8 +15,11 @@ export class ProductRepository {
     return await this.productRepository.findAll();
   }
 
-  async create(product: ProductDto): Promise<Product> {
-    return await this.productRepository.create({ ...product });
+  async create(product: ProductDto, user: JwtPayload): Promise<Product> {
+    return await this.productRepository.create({
+      ...product,
+      userId: user?.id,
+    });
   }
 
   async productById(product: DeleteProductDto): Promise<Product | null> {
