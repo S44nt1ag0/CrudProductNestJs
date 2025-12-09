@@ -3,9 +3,9 @@
   <a href="https://sequelize.org/" target="blank"><img src="https://sequelize.org/img/logo.svg" width="120" alt="Sequelize Logo" /></a>
 </p>
 
-# Hugh Caption Backend
+# CRUD Backend
 
-Welcome to the **Hugh Caption** backend repository! 🚀
+Welcome to the **CRUD** backend repository! 🚀
 This project is a robust RESTful API built with **NestJS**, designed to handle user authentication, product management, and more.
 
 ## 🛠️ Tech Stack
